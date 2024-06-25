@@ -1,4 +1,4 @@
-package com.idat._dasemana.dao;
+package com.idat.segundadasemana.dao;
 
 public interface IPersonaDao {
     

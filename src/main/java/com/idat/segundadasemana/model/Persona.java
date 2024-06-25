@@ -1,4 +1,4 @@
-package com.idat._dasemana.model;
+package com.idat.segundadasemana.model;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
