@@ -1,6 +1,7 @@
 package com.idat.segundadasemana.services;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -26,24 +27,29 @@ public class PersonaService implements IPersonaService {
         return dao.save(p);
     }
 
+    @SuppressWarnings("unused")
     @Override
     public boolean eliminar(Long id) {
-        throw new UnsupportedOperationException("Unimplemented method 'eliminar'");
+        Optional<Persona> opt= dao.findById(id);
+        if (opt!=null) {
+            dao.delete(opt.get());
+            return true;
+        }
+        return false;
     }
 
     @Override
     public Persona buscar(Long id) {
-        throw new UnsupportedOperationException("Unimplemented method 'buscar'");
+        return dao.findById(id).get();
     }
 
     @Override
     public List<Persona> listar() {
-        throw new UnsupportedOperationException("Unimplemented method 'listar'");
+        return dao.findAll();
     }
 
     @Override
     public Page<Persona> listarPagina(Pageable pagina) {
-        throw new UnsupportedOperationException("Unimplemented method 'listarPagina'");
+        return dao.findAll(pagina);
     }
-    
 }
