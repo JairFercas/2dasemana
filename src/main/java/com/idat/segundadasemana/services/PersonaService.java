@@ -12,7 +12,9 @@ import com.idat.segundadasemana.dao.IPersonaDao;
 import com.idat.segundadasemana.model.Persona;
 
 @Service
-public class PersonaService implements IPersonaService {
+// -> Pasa a .....
+public class PersonaService implements IPersonaService { //3) se implementan las interfaces creadas en este servicio del modelo -> controlador de servicios
+    //AQUI ESTA LA LOGICA DE QUE HACE CADA METODO, SE PODRIA DECIR QUE ESTA PARTE ES LA MAS COMPLICADA
     @Autowired
     private IPersonaDao dao;
 

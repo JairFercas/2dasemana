@@ -9,7 +9,8 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "tblPersona")
-public class Persona {
+// -> Pasa a .....
+public class Persona { //1) Se crean el modelo -> interfaces del modelo
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idPersona;
