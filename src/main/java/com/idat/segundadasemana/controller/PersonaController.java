@@ -13,8 +13,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.idat.segundadasemana.model.Persona;
 import com.idat.segundadasemana.services.IPersonaService;
 
-import jakarta.websocket.server.PathParam;
-
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -39,7 +37,7 @@ public class PersonaController { //4) Se controlan los servicios a utilizar crea
     }
 
     @GetMapping("/{id}")
-    public Persona buscarPersona(@PathParam("id") Long id) {
+    public Persona buscarPersona(@PathVariable("id") Long id) {
         return service.buscar(id);
     }
 
