@@ -53,7 +53,7 @@ public class PersonaController { //4) Se controlan los servicios a utilizar crea
         return new ResponseEntity<Persona>(pN,HttpStatus.CREATED);
     }
 
-    @PutMapping("modificar/{id}")
+    @PutMapping
     public Persona modificar(@RequestBody Persona personaje) {
         return service.modificar(personaje);
     }
