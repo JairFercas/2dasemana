@@ -79,8 +79,8 @@ public class PersonaController { //4) Se controlan los servicios a utilizar crea
         return service.listarNativo();
     }
 
-    @GetMapping("/listarProcedure/{id}")
-    public List<Persona> listProcedure(@PathVariable Long id) {
+    @GetMapping("/listarProcedure")
+    public List<Persona> listProcedure(Long id) {
         return service.listarProcedure(id);
     }
     

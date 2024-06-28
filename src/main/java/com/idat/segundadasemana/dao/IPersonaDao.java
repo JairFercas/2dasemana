@@ -16,7 +16,7 @@ public interface IPersonaDao extends JpaRepository<Persona, Long> {
     List<Persona> findByNombresAndApellidos(String nombres, String apellidos);
 
     //ejemplo para HQL , querys de Hibernate
-    @Query(value = "from Persona p where idpersona=:id_persona")
+    @Query(value = "from Persona p where idPersona=:id_persona")
     List<Persona> listarHQL(@Param("id_persona") Long id);
 
     @Query(value = "Select id_persona,nombres, apellidos from tbl_persona",nativeQuery = true) //El query nativo retorna un listado de objetos
@@ -24,5 +24,5 @@ public interface IPersonaDao extends JpaRepository<Persona, Long> {
 
     //@Query(value="select * from fnc_listar(?1)", nativeQuery = true) // funcion para postgresql
     @Query(value="call listaPersona(?1)", nativeQuery = true) // sp para mysql
-    List<Object[]> listarProcedure(Long idpersona);
+    List<Object[]> listarProcedure(Long id);
 }
