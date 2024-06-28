@@ -19,6 +19,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestParam;
+
 
 
 
@@ -62,6 +64,31 @@ public class PersonaController { //4) Se controlan los servicios a utilizar crea
     public Boolean eliminar(@PathVariable("id") Long id){
         return service.eliminar(id);
     }
+
+    //Implementando los nuevos metodos
+    @GetMapping("/listarNA")
+    public List<Persona> buscarNombreApellido(String nombres, String apellidos) {
+        return service.listarNombreApellidos(nombres, apellidos);
+    }
+
+    @GetMapping("/listar")
+    public List<Persona> listarHQL(Long id) {
+        return service.listarHQL(id);
+    }
+
+    @GetMapping("/listarNativo")
+    public List<Persona> listarNativo() {
+        return service.listarNativo();
+    }
+
+    @GetMapping("/listarProcedure/{id}")
+    public List<Persona> listProcedure(@PathVariable Long id) {
+        return service.listarProcedure(id);
+    }
+    
+    
+    
+    
     
 
 }
