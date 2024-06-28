@@ -69,7 +69,7 @@ public class PersonaController { //4) Se controlan los servicios a utilizar crea
         return service.listarNombreApellidos(nombres, apellidos);
     }
 
-    @GetMapping("/listar/{id}")
+    @GetMapping("/listarHQL/{id}")
     public List<Persona> listarHQL(@PathVariable("id")Long id) {
         return service.listarHQL(id);
     }
