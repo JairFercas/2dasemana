@@ -84,8 +84,11 @@ public class PersonaController { //4) Se controlan los servicios a utilizar crea
         return service.listarProcedure(id);
     }
     
-    
-    
+    @PostMapping("/cantidad")
+    public ResponseEntity<List<Persona>> rPersonasRE(@RequestBody List<Persona> pRegistradas) {
+        List<Persona> pList= service.registrarPersonas(pRegistradas);
+        return new ResponseEntity<List<Persona>>(pList,HttpStatus.CREATED);
+    }
     
     
 

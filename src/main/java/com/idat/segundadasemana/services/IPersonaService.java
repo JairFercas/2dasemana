@@ -15,9 +15,9 @@ public interface IPersonaService{ //2) se crean las interfaces del modelo "Perso
 
     boolean eliminar(Long id);
 
-    Persona buscar(Long id);
+    Persona buscar(Long id); //si quiere ver solo una Persona, solo "Persona"
 
-    List<Persona> listar();
+    List<Persona> listar(); //Si quiero ver varias personas List<Persona>
 
     Page<Persona> listarPagina(Pageable pagina);
 
@@ -26,6 +26,8 @@ public interface IPersonaService{ //2) se crean las interfaces del modelo "Perso
     List<Persona> listarHQL(Long id);
     List<Persona> listarNativo();
     List<Persona> listarProcedure(Long id);
+
+    List<Persona> registrarPersonas(List<Persona> pRegistradas);
 
 
 }

@@ -96,5 +96,11 @@ public class PersonaService implements IPersonaService { //3) se implementan las
         }
         return lista;
     }
+
+    @Override
+    public List<Persona> registrarPersonas(List<Persona> pRegistradas) {
+        return dao.saveAll(pRegistradas);
+    }
+
     
 }
