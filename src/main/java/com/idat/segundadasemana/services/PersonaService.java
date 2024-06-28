@@ -58,6 +58,11 @@ public class PersonaService implements IPersonaService { //3) se implementan las
     
     //metodos especiales agregados
     @Override
+    public List<Persona> listarNombreApellidos(String nombres, String apellidos) {
+        return dao.findByNombresAndApellidos(nombres, apellidos);
+    }
+
+    @Override
     public List<Persona> listarHQL(Long id) {
         return dao.listarHQL(id);
     }
@@ -76,10 +81,7 @@ public class PersonaService implements IPersonaService { //3) se implementan las
         return lista;
     }
 
-    @Override
-    public List<Persona> listarNombreApellidos(String nombres, String apellidos) {
-        return dao.findByNombresAndApellidos(nombres, apellidos);
-    }
+    
 
     @Override
     public List<Persona> listarProcedure(Long id) {

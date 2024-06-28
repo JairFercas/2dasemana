@@ -23,6 +23,6 @@ public interface IPersonaDao extends JpaRepository<Persona, Long> {
     List<Object[]> listarNativo();
 
     //@Query(value="select * from fnc_listar(?1)", nativeQuery = true) // funcion para postgresql
-    @Query(value="call listaPersona(?1)", nativeQuery = true) // sp para mysql
+    @Query(value="call listaPersona(?1)", nativeQuery = true) // sp para mysql, ese 1 no se para que sirve, no afecta al momento de realizar la consulta en postman
     List<Object[]> listarProcedure(Long id);
 }

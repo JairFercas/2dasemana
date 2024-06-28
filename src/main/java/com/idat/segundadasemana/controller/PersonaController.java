@@ -64,13 +64,13 @@ public class PersonaController { //4) Se controlan los servicios a utilizar crea
     }
 
     //Implementando los nuevos metodos
-    @GetMapping("/listarNA")
-    public List<Persona> buscarNombreApellido(String nombres, String apellidos) {
+    @GetMapping("/listarNA/{nombres}/{apellidos}")
+    public List<Persona> buscarNombreApellido(@PathVariable("nombres")String nombres,@PathVariable("apellidos") String apellidos) { // se interpreta que hay un @RequestParam
         return service.listarNombreApellidos(nombres, apellidos);
     }
 
-    @GetMapping("/listar")
-    public List<Persona> listarHQL(Long id) {
+    @GetMapping("/listar/{id}")
+    public List<Persona> listarHQL(@PathVariable("id")Long id) {
         return service.listarHQL(id);
     }
 
@@ -79,8 +79,8 @@ public class PersonaController { //4) Se controlan los servicios a utilizar crea
         return service.listarNativo();
     }
 
-    @GetMapping("/listarProcedure")
-    public List<Persona> listProcedure(Long id) {
+    @GetMapping("/listarProcedure/{id}")
+    public List<Persona> listProcedure(@PathVariable("id") Long id) {
         return service.listarProcedure(id);
     }
     
