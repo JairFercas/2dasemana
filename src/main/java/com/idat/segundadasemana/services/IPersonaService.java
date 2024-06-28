@@ -20,4 +20,12 @@ public interface IPersonaService{ //2) se crean las interfaces del modelo "Perso
     List<Persona> listar();
 
     Page<Persona> listarPagina(Pageable pagina);
+
+    //agreados recientemente, metodos especiales con HQL y Query Native
+    List<Persona> listarNombreApellidos(String nombres, String apellidos);
+    List<Persona> listarHQL(Long id);
+    List<Persona> listarNativo();
+    List<Persona> listarProcedure(Long id);
+
+
 }

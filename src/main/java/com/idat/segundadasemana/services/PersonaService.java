@@ -1,5 +1,6 @@
 package com.idat.segundadasemana.services;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -53,5 +54,45 @@ public class PersonaService implements IPersonaService { //3) se implementan las
     @Override
     public Page<Persona> listarPagina(Pageable pagina) {
         return dao.findAll(pagina);
+    }    
+    
+    //metodos especiales agregados
+    @Override
+    public List<Persona> listarHQL(Long id) {
+        return dao.listarHQL(id);
     }
+
+    @Override
+    public List<Persona> listarNativo() {
+        List<Persona> lista= new ArrayList<>();
+        List<Object[]> lst= dao.listarNativo();
+        for(Object[] obj:lst){
+            Persona p = new Persona();
+            p.setIdPersona(Long.valueOf(obj[0].toString()));
+            p.setNombres(obj[1].toString());
+            p.setApellidos(obj[2].toString());
+            lista.add(p);
+        }   
+        return lista;
+    }
+
+    @Override
+    public List<Persona> listarNombreApellidos(String nombres, String apellidos) {
+        return dao.findByNombresAndApellidos(nombres, apellidos);
+    }
+
+    @Override
+    public List<Persona> listarProcedure(Long id) {
+        List<Persona> lista= new ArrayList<>(); //Ingreso el metodo de DAO
+        List<Object[]> lst= dao.listarProcedure(id); //
+        for(Object[] obj:lst){
+            Persona p = new Persona();
+            p.setIdPersona(Long.valueOf(obj[0].toString()));
+            p.setNombres(obj[1].toString());
+            p.setApellidos(obj[2].toString());
+            lista.add(p);
+        }
+        return lista;
+    }
+    
 }
